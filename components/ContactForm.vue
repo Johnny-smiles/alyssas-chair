@@ -1,51 +1,92 @@
 <template>
-    <form class="contact bg-white p-6 rounded-custom shadow-md max-w-xl mx-auto mt-16" @submit.prevent="handleSubmit">
-        <h2 class="text-xl font-bold mb-4">Let’s Talk!</h2>
-        <p class="mb-4">Or email us directly at <a :href="`mailto:${email}`" class="text-primary underline">{{ email }}</a></p>
-        <input type="text" placeholder="Your Name" v-model="name" required class="w-full p-3 mb-4 border border-gray-300 rounded-custom" />
-        <input type="email" placeholder="Your Email" v-model="emailField" required class="w-full p-3 mb-4 border border-gray-300 rounded-custom" />
-        <textarea placeholder="How can we help?" v-model="message" required class="w-full p-3 mb-4 border border-gray-300 rounded-custom"></textarea>
-        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-custom font-bold w-full">Send</button>
+    <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        @submit.prevent="onSubmit"
+        class="contact-form"
+    >
+        <!-- Netlify hidden inputs -->
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden">
+            <label>
+                Don’t fill this out if you’re human:
+                <input name="bot-field" />
+            </label>
+        </p>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input
+                id="name"
+                type="text"
+                name="name"
+                v-model="form.name"
+                required
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+                id="email"
+                type="email"
+                name="email"
+                v-model="form.email"
+                required
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+                id="message"
+                name="message"
+                v-model="form.message"
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit">Send</button>
     </form>
 </template>
 
 <script setup>
-defineProps({ email: String })
-const name = ref('')
-const emailField = ref('')
-const message = ref('')
+import {reactive} from 'vue'
 
-function handleSubmit() {
-    alert(`Thanks kindly! We'll be in touch.\nName: ${name.value}\nEmail: ${emailField.value}\nMessage: ${message.value}`)
+const emit = defineEmits(['submit'])
+
+// local reactive form state
+const form = reactive({
+    name: '',
+    email: '',
+    message: ''
+})
+
+function onSubmit() {
+    emit('submit', {...form})
 }
 </script>
 
-
 <style scoped>
-.contact {
-    margin: 4rem auto;
-    max-width: 600px;
-    background: #fffefc;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-    text-align: center;
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
-.contact input,
-.contact textarea {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 100%;
-    margin-bottom: 1rem;
+
+.form-group {
+    display: flex;
+    flex-direction: column;
 }
-.contact button {
-    background: #224870;
-    color: white;
-    font-weight: bold;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+
+.hidden {
+    display: none;
+}
+
+button[type="submit"] {
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
 }
 </style>

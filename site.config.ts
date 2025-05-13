@@ -1,25 +1,20 @@
 export const siteConfig = {
-    siteName: 'Minnesota Handy',
-    siteUrl: 'https://minnesotahandy.netlify.app',
-    phone: '+1-555-123-4567',
-    email: 'hello@minnesotahandy.com',
+    siteName: "Alyssa's Chair",
+    siteUrl: 'https://alyssaschair.com',
+    phone: '+1-612-555-1234',
+    email: 'info@alyssaschair.com',
     location: {
-        city: 'Minneapolis',
-        state: 'MN',
-        zip: '55401',
-        country: 'US',
-        latitude: '44.9778',
-        longitude: '-93.2650'
+        city: 'Minneapolis', state: 'MN', zip: '55401', country: 'US', latitude: '44.9778', longitude: '-93.2650'
     },
-    description: 'Friendly, local home repair & electrical services in Minnesota.',
-    hours: 'Mo-Fr 08:00-17:00',
-    socialImage: '/social-preview.png',
-    favicon: '/favicon.png',
+    description: "Alyssa's Chair specializes in elegant bridal hair styling in Minneapolis, MN. Our experienced stylists craft stunning bridal looks tailored to your unique vision.",
+    hours: 'Tu 12:00-20:00, We-Th 10:00-20:00, Fr 10:00-14:00, Sa 09:00-15:00',
+    socialImage: '/social-glow.png',
+    favicon: '/favicon-glow.png',
     theme: {
-        primaryColor: '#224870',
-        secondaryColor: '#f3f4f6',
-        accentColor: '#d0e8f2',
-        fontFamily: ['Inter', 'sans-serif'],
-        borderRadius: '0.5rem'
+        primaryColor: '#d97706',     // warm amber
+        secondaryColor: '#fef3c7',   // soft cream
+        accentColor: '#fcd34d',      // sunflower
+        fontFamily: ['Playfair Display', 'serif'],
+        borderRadius: '1rem'
     }
 }

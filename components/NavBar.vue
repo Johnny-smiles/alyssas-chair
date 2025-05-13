@@ -1,38 +1,66 @@
 <template>
     <nav class="nav">
-        <NuxtLink to="/" class="logo">Minnesota Handy</NuxtLink>
-        <div class="links">
-            <NuxtLink to="/about">About</NuxtLink>
-            <NuxtLink to="/services">Services</NuxtLink>
-            <NuxtLink to="/contact">Contact</NuxtLink>
+        <!-- left links -->
+        <div class="nav__links nav__links--left">
+            <NuxtLink to="/services" class="nav__link">Services</NuxtLink>
+            <NuxtLink to="/about"   class="nav__link">Meet Alyssa</NuxtLink>
+        </div>
+
+        <!-- centered logo -->
+        <NuxtLink to="/" class="nav__logo">
+            {{ siteConfig.siteName }}
+        </NuxtLink>
+
+        <!-- right links -->
+        <div class="nav__links nav__links--right">
+            <NuxtLink to="/contact" class="nav__link">Contact</NuxtLink>
         </div>
     </nav>
 </template>
 
+<script setup>
+import { siteConfig } from '~/site.config'
+</script>
+
 <style scoped>
 .nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1.5rem 2rem;
-    background: #224870;
-    color: white;
+    background-color: #fbfbfb;
 }
-.logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-}
-.links {
+
+/* both link-containers flex equally so the logo sits perfectly centered */
+.nav__links {
     display: flex;
-    gap: 1.5rem;
+    flex: 1;
+    gap: 2rem;
+    /* vertical centering is inherited from .nav */
 }
-.links a {
-    color: white;
+
+/* push group to left or right */
+.nav__links--left  { justify-content: flex-start; }
+.nav__links--right { justify-content: flex-end;   }
+
+/* logo never grows/shrinks */
+.nav__logo {
+    flex: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000000;
     text-decoration: none;
 }
-.links a:hover {
+
+/* link styling */
+.nav__link {
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.95rem;
+}
+
+.nav__link:hover {
     text-decoration: underline;
 }
 </style>

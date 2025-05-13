@@ -1,38 +1,78 @@
 <template>
-    <section class="hero bg-accent text-center py-20 px-6">
-        <h1 class="text-3xl font-bold text-primary">Welcome to {{ siteName }}</h1>
-        <p class="mt-4 text-lg">We’re local, dependable, and always happy to lend a hand.</p>
-        <NuxtImg src="/tools-hero.png" width="700" alt="Technicians with tools" class="mx-auto mt-8 rounded-custom" />
-        <br>
-        <a href="#contact" class="cta bg-primary text-white mt-8 inline-block px-6 py-3 rounded-custom font-bold">Get in Touch</a>
+    <section class="hero">
+        <!-- background image -->
+        <NuxtImg
+            src="/hero-hair.jpg"
+            alt="Bridal hair styling"
+            class="hero-image"
+            fill
+            sizes="100vw"
+        />
+
+        <!-- dark overlay + centered content -->
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <span class="hero-subtitle">— {{ siteConfig.siteName }}</span>
+                <h1 class="hero-title">Bridal Hair Styling Boutique</h1>
+                <NuxtLink to="/contact" class="hero-cta">Book Your Trial</NuxtLink>
+            </div>
+        </div>
     </section>
 </template>
 
 <script setup>
-defineProps({ siteName: String })
+import { siteConfig } from '~/site.config'
 </script>
 
 <style scoped>
 .hero {
-    text-align: center;
-    padding: 5rem 2rem;
-    background: #d0e8f2;
-    color: #333;
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 400px;
+    overflow: hidden;
 }
-.hero-content {
-    max-width: 800px;
-    margin: auto;
-}
+
 .hero-image {
-    max-width: 100%;
-    height: auto;
+    object-fit: cover;
+    object-position: center;
 }
-.cta {
-    display: inline-block;
-    margin-top: 2rem;
-    background: #224870;
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.hero-content {
+    text-align: center;
     color: white;
-    padding: 1rem 2rem;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    display: block;
+    font-family: serif;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.hero-cta {
+    display: inline-block;
+    background-color: #224870;
+    color: white;
+    padding: 0.75rem 1.5rem;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;

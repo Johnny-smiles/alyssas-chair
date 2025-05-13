@@ -1,18 +1,18 @@
 <template>
     <main>
         <HeroSection />
-        <ServicesSection />
-        <section aria-labelledby="contact-heading">
-            <ContactForm />
-        </section>
-        <FaqSection />
-        <Footer />
+        <HomepageServices />
+        <Footer
+            name="Alyssa’s Chair"
+            phone="612-555-1234"
+            email="hello@alyssaschair.com"
+        />
     </main>
 </template>
 
 <script setup>
 import HeroSection from '~/components/HeroSection.vue'
-import ServicesSection from '~/components/ServicesSection.vue'
+import HomepageServices from '~/components/HomepageServices.vue'
 import ContactForm from '~/components/ContactForm.vue'
 import FaqSection from '~/components/FaqSection.vue'
 import Footer from '~/components/Footer.vue'
