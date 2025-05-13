@@ -27,9 +27,9 @@
                 <NuxtLink to="/contact" class="services-overview__cta">
                     CONTACT US TO INQUIRE ABOUT AVAILABILITY!
                 </NuxtLink>
-                <NuxtLink to="/consult" class="services-overview__cta">
-                    CLICK HERE FOR OUR NEW CLIENT CONSULT FORM!
-                </NuxtLink>
+<!--                <NuxtLink to="/consult" class="services-overview__cta">-->
+<!--                    CLICK HERE FOR OUR NEW CLIENT CONSULT FORM!-->
+<!--                </NuxtLink>-->
 
                 <p class="services-overview__policy">
                     Cancellation Policy: We require 72 hours notice for any and all
