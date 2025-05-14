@@ -1,4 +1,3 @@
-<!-- components/HomepageServices.vue -->
 <template>
     <section class="homepage-services">
 
@@ -28,7 +27,6 @@
             </div>
         </div>
 
-        <!-- 2) Gallery preview: 3 images in a row │ vertical “Bridal” label -->
         <div class="services-preview">
             <div class="services-preview__gallery">
                 <NuxtImg src="/images/hair1.jpg" alt="Example hairstyle #1" />
@@ -40,7 +38,6 @@
 
         <div class="services-preview">
             <div class="services-preview__label">Bridal</div>
-
             <div class="services-preview__gallery">
                 <NuxtImg src="/images/bridal1.jpg" alt="Example bridal #1" />
                 <NuxtImg src="/images/bridal2.jpg" alt="Example bridal #2" />
@@ -120,7 +117,8 @@ import { siteConfig } from '~/site.config'
     gap: 1rem;
     flex: 1;
 }
-.services-preview__gallery img {
+.services-preview__gallery img,
+.services-preview__gallery .nuxt-img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -130,14 +128,12 @@ import { siteConfig } from '~/site.config'
     text-orientation: mixed;
     font-family: serif;
     font-style: italic;
-    /* ↑ bumped these two values for a larger, more dramatic look: */
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 0.1em;
     color: #224870;
-    margin: 0 1rem; /* keeps some breathing room from the images */
+    margin: 0 1rem;
 }
-
 
 /* Bottom CTA */
 .services-cta {
@@ -149,4 +145,108 @@ import { siteConfig } from '~/site.config'
     text-decoration: underline;
     color: #224870;
 }
+
+/* Responsive styles */
+@media (max-width: 900px) {
+    .homepage-services {
+        padding: 2.5rem 1rem;
+    }
+    .services-intro {
+        gap: 1.2rem;
+        margin-bottom: 2.5rem;
+    }
+    .services-preview {
+        gap: 0.7rem;
+        margin-bottom: 1.2rem;
+    }
+    .services-preview__gallery {
+        gap: 0.7rem;
+    }
+    .services-intro__content .intro-title {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .homepage-services {
+        padding: 1.5rem 0.5rem;
+    }
+    .services-intro {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .services-intro__label {
+        writing-mode: horizontal-tb;
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+    }
+    .services-intro__image {
+        margin-bottom: 0.5rem;
+    }
+    .services-intro__content .intro-title {
+        font-size: 1.05rem;
+    }
+    .services-intro__content .intro-text {
+        font-size: 0.97rem;
+    }
+    .services-intro__content .intro-link {
+        font-size: 1rem;
+    }
+    .services-preview {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        margin-bottom: 1.2rem;
+    }
+    .services-preview__gallery {
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    .services-preview__gallery img,
+    .services-preview__gallery .nuxt-img {
+        max-width: 32vw;
+        min-width: 0;
+    }
+    .services-preview__label {
+        writing-mode: horizontal-tb;
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    .services-cta {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    .cta-link {
+        font-size: 1.1rem;
+    }
+}
+
+/* Stack gallery images vertically on small screens */
+@media (max-width: 600px) {
+    .services-preview__gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .services-preview__gallery img,
+    .services-preview__gallery .nuxt-img {
+        max-width: 90vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .homepage-services {
+        padding: 1rem 0.2rem;
+    }
+    .services-intro__content .intro-title {
+        font-size: 0.98rem;
+    }
+    .services-intro__content .intro-text {
+        font-size: 0.93rem;
+    }
+}
 </style>
+

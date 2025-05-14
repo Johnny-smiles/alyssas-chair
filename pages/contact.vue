@@ -177,11 +177,6 @@ import Footer from "~/components/Footer.vue";
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
 }
-@media (max-width: 768px) {
-    .contact-us__container {
-        grid-template-columns: 1fr;
-    }
-}
 .contact-us__info h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -225,6 +220,10 @@ input, textarea, select {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem;
+}
+textarea {
+    resize: vertical;
 }
 .btn {
     align-self: flex-start;
@@ -235,6 +234,15 @@ input, textarea, select {
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+.btn:hover,
+.btn:focus {
+    background: #183356;
+}
+.hidden {
+    display: none;
 }
 
 /* Visit Us */
@@ -247,11 +255,6 @@ input, textarea, select {
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
     align-items: start;
-}
-@media (max-width: 768px) {
-    .visit-us__container {
-        grid-template-columns: 1fr;
-    }
 }
 .visit-us__img {
     width: 100%;
@@ -273,5 +276,94 @@ address {
     padding: 0;
     color: #555;
     line-height: 1.5;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 900px) {
+    .contact-hero__title {
+        font-size: 2rem;
+    }
+    .contact-us {
+        padding: 2.5rem 1rem;
+    }
+    .visit-us {
+        padding: 2.5rem 1rem;
+    }
+    .contact-us__container,
+    .visit-us__container {
+        gap: 1.5rem;
+    }
+    .contact-us__info h2,
+    .visit-us__info h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 600px) {
+    .contact-hero {
+        height: 32vh;
+        min-height: 120px;
+    }
+    .contact-hero__title {
+        font-size: 1.15rem;
+        padding: 0 0.5rem;
+    }
+    .contact-us {
+        padding: 1.5rem 0.5rem;
+    }
+    .contact-us__container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .contact-us__info h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+    }
+    .contact-us__phone,
+    .contact-us__email {
+        font-size: 1rem;
+    }
+    .contact-us__text {
+        font-size: 0.97rem;
+        margin-top: 0.7rem;
+    }
+    .contact-us__form {
+        gap: 0.7rem;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    input, textarea, select {
+        font-size: 0.98rem;
+        padding: 0.55rem 0.7rem;
+    }
+    .btn {
+        width: 100%;
+        align-self: stretch;
+        font-size: 1rem;
+        padding: 0.85rem 0;
+        margin-top: 0.5rem;
+    }
+    .visit-us {
+        padding: 1.5rem 0.5rem;
+    }
+    .visit-us__container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    .visit-us__img {
+        max-width: 98vw;
+        margin-bottom: 1rem;
+    }
+    .visit-us__info h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+    }
+    address,
+    .visit-us__hours {
+        font-size: 0.97rem;
+    }
 }
 </style>

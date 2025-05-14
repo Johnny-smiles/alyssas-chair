@@ -32,30 +32,70 @@ import Footer from '~/components/Footer.vue'
 .page-about {
     display: flex;
     flex-direction: column;
-    height: 100vh;       /* fill exactly the viewport */
-    overflow: hidden;     /* prevent page-level scrolling */
+    min-height: 100vh;
+    height: auto;
+    overflow: hidden;
 }
 
 .about {
-    flex: 1;              /* take all leftover space above the footer */
-    min-height: 0;        /* allow it to shrink below its content if needed */
-    overflow-y: auto;     /* scroll internally if content overflows */
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
     padding: 4rem 2rem;
     box-sizing: border-box;
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
 .about h1 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    font-weight: bold;
+    color: #224870;
+    letter-spacing: 0.01em;
 }
 
 .about p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.08rem;
+    line-height: 1.7;
     color: #555;
     margin-bottom: 1.25rem;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 900px) {
+    .about {
+        padding: 2.5rem 1rem;
+        max-width: 95vw;
+    }
+    .about h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 600px) {
+    .page-about {
+        min-height: 100vh;
+        height: auto;
+    }
+    .about {
+        padding: 1.2rem 0.5rem;
+        max-width: 99vw;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .about h1 {
+        font-size: 1.25rem;
+        margin-bottom: 0.8rem;
+    }
+    .about p {
+        font-size: 0.97rem;
+        margin-bottom: 0.9rem;
+    }
 }
 </style>

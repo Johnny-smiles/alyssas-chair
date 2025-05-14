@@ -27,9 +27,6 @@
                 <NuxtLink to="/contact" class="services-overview__cta">
                     CONTACT US TO INQUIRE ABOUT AVAILABILITY!
                 </NuxtLink>
-<!--                <NuxtLink to="/consult" class="services-overview__cta">-->
-<!--                    CLICK HERE FOR OUR NEW CLIENT CONSULT FORM!-->
-<!--                </NuxtLink>-->
 
                 <p class="services-overview__policy">
                     Cancellation Policy: We require 72 hours notice for any and all
@@ -146,7 +143,8 @@
     margin-bottom: 4rem;
 }
 
-.services-overview__image img {
+.services-overview__image img,
+.services-overview__image .nuxt-img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -234,5 +232,89 @@
     margin: 0 1rem 1.5rem;
     color: #555;
     line-height: 1.5;
+}
+
+/* ----------- Responsive Styles ----------- */
+@media (max-width: 900px) {
+    .services {
+        padding: 2.5rem 1rem;
+    }
+    .services-overview {
+        gap: 1.2rem;
+        margin-bottom: 2.5rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    .services-overview__label {
+        font-size: 1.2rem;
+    }
+    .services-overview__title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .services {
+        padding: 1.5rem 0.5rem;
+    }
+    .services-overview {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .services-overview__label {
+        writing-mode: horizontal-tb;
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+    }
+    .services-overview__image {
+        margin-bottom: 0.5rem;
+    }
+    .services-overview__title {
+        font-size: 1.05rem;
+    }
+    .services-overview__text {
+        font-size: 0.97rem;
+    }
+    .services-overview__cta {
+        font-size: 1rem;
+    }
+    .services-overview__policy {
+        font-size: 0.95rem;
+    }
+    .services__title {
+        font-size: 1.2rem;
+    }
+    .services__grid {
+        gap: 1rem;
+    }
+    .services__name {
+        font-size: 1.05rem;
+        margin: 0.7rem;
+    }
+    .services__desc {
+        font-size: 0.97rem;
+        margin: 0 0.7rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services {
+        padding: 1rem 0.2rem;
+    }
+    .services-overview__title {
+        font-size: 0.98rem;
+    }
+    .services-overview__text,
+    .services-overview__policy {
+        font-size: 0.93rem;
+    }
+    .services__grid {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
+    .services__card {
+        border-radius: 8px;
+    }
 }
 </style>

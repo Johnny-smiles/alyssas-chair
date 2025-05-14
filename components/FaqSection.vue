@@ -1,4 +1,3 @@
-<!-- components/FAQ.vue -->
 <template>
     <section class="faq-section">
         <!-- Header: title, subtitle, image -->
@@ -94,7 +93,6 @@
     padding: 4rem 2rem;
 }
 
-/* Header layout */
 .faq-header {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -113,9 +111,15 @@
     color: #555;
     line-height: 1.6;
 }
-.faq-header__image img {
+.faq-header__image img,
+.faq-header__image .nuxt-img {
     border-radius: 8px;
     object-fit: cover;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Separator */
@@ -137,6 +141,7 @@
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.05em;
+    font-size: 1.15rem;
 }
 .faq-item h3::before {
     content: "+";
@@ -149,15 +154,71 @@
     margin: 0;
     color: #333;
     line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Tablet and below */
+@media (max-width: 900px) {
+    .faq-section {
+        padding: 3rem 1rem;
+    }
+    .faq-title {
+        font-size: 2rem;
+    }
+    .faq-header {
+        gap: 1.25rem;
+    }
+    .faq-items {
+        gap: 1.25rem;
+    }
 }
 
 /* Mobile stack */
 @media (max-width: 768px) {
+    .faq-section {
+        padding: 2rem 0.5rem;
+    }
     .faq-header {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     .faq-header__image {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
+        width: 100%;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .faq-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .faq-subtitle {
+        font-size: 1rem;
+        text-align: center;
+    }
+    .faq-items {
+        gap: 1rem;
+    }
+    .faq-item h3 {
+        font-size: 1rem;
+        padding-left: 1.1rem;
+    }
+    .faq-item p {
+        font-size: 0.97rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .faq-section {
+        padding: 1.2rem 0.2rem;
+    }
+    .faq-title {
+        font-size: 1.15rem;
+    }
+    .faq-header__image {
+        max-width: 95vw;
     }
 }
 </style>

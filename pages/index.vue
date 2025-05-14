@@ -1,7 +1,9 @@
 <template>
-    <main>
+    <main class="home-main">
         <HeroSection />
-        <HomepageServices />
+        <section class="home-section">
+            <HomepageServices />
+        </section>
         <Footer
             name="Alyssa’s Chair"
             phone="612-555-1234"
@@ -49,3 +51,40 @@ useHead({
     ]
 })
 </script>
+
+<style scoped>
+.home-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* Add spacing between sections */
+.home-section {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .home-section {
+        padding: 2rem 1rem;
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-main {
+        background: #fff;
+    }
+
+    .home-section {
+        padding: 1rem 0.5rem;
+        max-width: 100vw;
+    }
+}
+</style>

@@ -53,11 +53,10 @@
 </template>
 
 <script setup>
-import {reactive} from 'vue'
+import { reactive } from 'vue'
 
 const emit = defineEmits(['submit'])
 
-// local reactive form state
 const form = reactive({
     name: '',
     email: '',
@@ -65,7 +64,7 @@ const form = reactive({
 })
 
 function onSubmit() {
-    emit('submit', {...form})
+    emit('submit', { ...form })
 }
 </script>
 
@@ -73,12 +72,46 @@ function onSubmit() {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+input,
+textarea {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #888;
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
 }
 
 .hidden {
@@ -86,7 +119,38 @@ function onSubmit() {
 }
 
 button[type="submit"] {
-    align-self: flex-start;
-    padding: 0.5rem 1rem;
+    width: 100%;
+    padding: 0.85rem 0;
+    font-size: 1.1rem;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+    background: #444;
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+    .contact-form {
+        padding: 1.25rem 0.5rem;
+        max-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    input,
+    textarea {
+        font-size: 1rem;
+        padding: 0.65rem 0.75rem;
+    }
+    button[type="submit"] {
+        font-size: 1rem;
+        padding: 0.75rem 0;
+    }
 }
 </style>
