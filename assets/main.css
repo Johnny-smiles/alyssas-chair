@@ -1,7 +1,36 @@
-body {
-    font-family: system-ui, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f6f6f6;
-    color: #333;
+/* assets/main.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --stone-rose: #f7e4df;
+    --autumn-cedar: #7c4a33;
+    --fire-moss: #b97a56;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+}
+
+
+@layer base {
+    html, body {
+        font-family: var(--font-body);
+        color: var(--autumn-cedar);
+        background-color: var(--stone-rose);
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-family: var(--font-heading);
+        color: var(--autumn-cedar);
+    }
+    a {
+        color: var(--stone-rose);
+        text-decoration: underline;
+    }
+    a:hover {
+        color: var(--honey-lace); /* if you’ve kept that token, or switch to var(--fire-moss) */
+    }
+}
+
+/* Custom Styles */
+.hero-title {
+    color: var(--stone-rose);
 }

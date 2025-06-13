@@ -8,8 +8,13 @@
                 <li><NuxtLink to="/about">Meet Alyssa</NuxtLink></li>
             </ul>
 
-            <NuxtLink to="/" class="site-footer__logo">
-                {{ name }}
+            <NuxtLink to="/" class="nav__logo">
+                <NuxtImg
+                    class="nav__logo-img"
+                    src="/Logo_Abeille_Sedona_Hor.png"
+                    alt="Alyssa Logo"
+                    width="400"
+                />
             </NuxtLink>
 
             <ul class="site-footer__links site-footer__links--right">
@@ -34,7 +39,7 @@ defineProps({
 
 <style scoped>
 .site-footer {
-    background: #fff;
+    background: var(--stone-rose, #f7e4df);
     padding: 3rem 1rem;
 }
 
@@ -46,6 +51,7 @@ defineProps({
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 /* link lists */
@@ -55,7 +61,7 @@ defineProps({
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 .site-footer__links--left {
     align-items: flex-start;
@@ -70,9 +76,10 @@ defineProps({
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.9rem;
-    color: #333;
+    color: var(--autumn-cedar, #7c4a33);
     text-decoration: none;
     padding-bottom: 2px;
+    transition: color 0.2s;
 }
 .site-footer__links a::after {
     content: '';
@@ -81,11 +88,15 @@ defineProps({
     left: 0;
     width: 0;
     height: 1px;
-    background: #333;
+    background: var(--autumn-cedar, #7c4a33);
     transition: width 0.3s;
+}
+.site-footer__links a:hover {
+    color: var(--fire-moss, #b97a56);
 }
 .site-footer__links a:hover::after {
     width: 100%;
+    background: var(--fire-moss, #b97a56);
 }
 
 /* logo */
@@ -93,17 +104,18 @@ defineProps({
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: 80px;
-    color: #333;
+    color: var(--autumn-cedar, #7c4a33);
     text-decoration: none;
 }
 
 /* center copyright beneath the same max-width as nav */
 .site-footer__copyright {
     max-width: 1200px;
-    margin: 2rem auto 0;
+    margin: 1rem auto 0;
     text-align: center;
-    color: #777;
+    color: var(--autumn-cedar, #7c4a33);
     font-size: 0.8rem;
+    opacity: 0.7;
 }
 
 /* Responsive styles */

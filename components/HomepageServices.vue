@@ -5,13 +5,13 @@
         <div class="services-intro">
             <div class="services-intro__image">
                 <NuxtImg
-                    src="/images/service-intro.jpg"
+                    src="/Abeille-02.jpg"
                     alt="About"
                     width="600"
                 />
             </div>
 
-            <div class="services-intro__label">About</div>
+<!--            <div class="services-intro__label">About</div>-->
 
             <div class="services-intro__content">
                 <p class="intro-title">
@@ -48,8 +48,16 @@
         <!-- 3) Bottom CTA -->
         <div class="services-cta">
             <NuxtLink to="/services" class="cta-link">
-                Take a Look
+                See our Services
             </NuxtLink>
+            <a
+                href="https://instagram.com/alyssaschair"
+                class="cta-link"
+                target="_blank"
+                rel="noopener"
+            >
+                Visit us on Instagram
+            </a>
         </div>
 
     </section>
@@ -74,7 +82,10 @@ import { siteConfig } from '~/site.config'
     align-items: center;
     margin-bottom: 4rem;
 }
-.services-intro__image img {
+.services-intro__image img,
+.services-intro__image .nuxt-img {
+    display: block;
+    max-width: 100%;
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -85,7 +96,7 @@ import { siteConfig } from '~/site.config'
     font-family: serif;
     font-style: italic;
     letter-spacing: 0.1em;
-    color: #224870;
+    color: var(--autumn-cedar);
 }
 .services-intro__content .intro-title {
     font-size: 1.5rem;
@@ -101,7 +112,7 @@ import { siteConfig } from '~/site.config'
 .services-intro__content .intro-link {
     text-decoration: underline;
     font-weight: bold;
-    color: #224870;
+    color: var(--autumn-cedar);
 }
 
 /* Gallery preview: flex row */
@@ -131,19 +142,23 @@ import { siteConfig } from '~/site.config'
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 0.1em;
-    color: #224870;
+    color: var(--autumn-cedar);
     margin: 0 1rem;
 }
 
 /* Bottom CTA */
 .services-cta {
-    text-align: left;
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
 }
 .cta-link {
     font-size: 1.25rem;
     font-weight: bold;
     text-decoration: underline;
-    color: #224870;
+    color: var(--autumn-cedar);
 }
 
 /* Responsive styles */

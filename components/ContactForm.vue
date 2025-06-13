@@ -5,7 +5,7 @@
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         @submit.prevent="onSubmit"
-        class="contact-form"
+        class="flex flex-col gap-5 max-w-md mx-auto p-8 bg-stone-rose rounded-xl shadow-lg"
     >
         <!-- Netlify hidden inputs -->
         <input type="hidden" name="form-name" value="contact" />
@@ -16,39 +16,45 @@
             </label>
         </p>
 
-        <div class="form-group">
-            <label for="name">Name</label>
+        <div class="flex flex-col gap-2">
+            <label for="name" class="text-autumn-cedar font-medium">Name</label>
             <input
                 id="name"
                 type="text"
                 name="name"
                 v-model="form.name"
                 required
+                class="text-autumn-cedar bg-white border border-honey-lace rounded-md px-4 py-3 focus:outline-none focus:border-fire-moss transition-colors"
             />
         </div>
 
-        <div class="form-group">
-            <label for="email">Email</label>
+        <div class="flex flex-col gap-2">
+            <label for="email" class="text-autumn-cedar font-medium">Email</label>
             <input
                 id="email"
                 type="email"
                 name="email"
                 v-model="form.email"
                 required
+                class="text-autumn-cedar bg-white border border-honey-lace rounded-md px-4 py-3 focus:outline-none focus:border-fire-moss transition-colors"
             />
         </div>
 
-        <div class="form-group">
-            <label for="message">Message</label>
+        <div class="flex flex-col gap-2">
+            <label for="message" class="text-autumn-cedar font-medium">Message</label>
             <textarea
                 id="message"
                 name="message"
                 v-model="form.message"
                 required
+                class="text-autumn-cedar bg-white border border-honey-lace rounded-md px-4 py-3 min-h-[120px] resize-vertical focus:outline-none focus:border-fire-moss transition-colors"
             ></textarea>
         </div>
 
-        <button type="submit">Send</button>
+        <button
+            type="submit"
+            class="w-full py-3 text-lg font-semibold rounded-md bg-autumn-cedar text-white hover:bg-fire-moss transition-colors mt-2"
+        >Send</button>
     </form>
 </template>
 

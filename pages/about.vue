@@ -1,6 +1,7 @@
 <template>
-    <div class="page-about">
-        <section class="about">
+    <main class="page-about">
+        <br>
+        <section class="about mt-12">
             <h1>About Alyssa’s Chair</h1>
             <p>
                 Alyssa’s Chair is a boutique bridal hair studio located in the heart of Minneapolis.
@@ -14,6 +15,12 @@
                 to warm hospitality, meticulous attention to detail, and work done right.
                 Let us help you look—and feel—like the best version of yourself on your special day.
             </p>
+            <NuxtImg
+                class="about-img"
+                src="/alyssa.jpg"
+                alt="Alyssa Profile"
+                width="400"
+            />
         </section>
 
         <Footer
@@ -21,7 +28,7 @@
             phone="612-555-1234"
             email="hello@alyssaschair.com"
         />
-    </div>
+    </main>
 </template>
 
 <script setup lang="ts">
@@ -30,11 +37,14 @@ import Footer from '~/components/Footer.vue'
 
 <style scoped>
 .page-about {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     height: auto;
     overflow: hidden;
+    background: #f8fafc;
+
 }
 
 .about {
@@ -44,9 +54,9 @@ import Footer from '~/components/Footer.vue'
     padding: 4rem 2rem;
     box-sizing: border-box;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 3rem auto;
     text-align: center;
-    background: #fff;
+    background: #f3f4f6;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
@@ -55,7 +65,7 @@ import Footer from '~/components/Footer.vue'
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     font-weight: bold;
-    color: #224870;
+    color: var(--autumn-cedar);
     letter-spacing: 0.01em;
 }
 
@@ -64,6 +74,13 @@ import Footer from '~/components/Footer.vue'
     line-height: 1.7;
     color: #555;
     margin-bottom: 1.25rem;
+}
+
+.about-img {
+    display: block;
+    margin: 2rem auto 0 auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Tablet breakpoint */

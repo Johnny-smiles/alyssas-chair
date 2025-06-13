@@ -50,7 +50,7 @@
             >
                 <NuxtImg
                     class="services__img"
-                    src="/services/bridal-hair.jpg"
+                    src="/bridalHair.jpg"
                     alt="Bridal Hair"
                     width="400"
                 />
@@ -158,7 +158,7 @@
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 0.1em;
-    color: #224870;
+    color: var(--autumn-cedar);
 }
 
 .services-overview__content {
@@ -183,7 +183,7 @@
 .services-overview__cta {
     text-decoration: underline;
     font-weight: bold;
-    color: #224870;
+    color: var(--autumn-cedar);
     margin-bottom: 0.75rem;
 }
 

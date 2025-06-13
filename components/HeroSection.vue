@@ -2,17 +2,15 @@
     <section class="hero">
         <!-- background image -->
         <NuxtImg
-            src="/hero-hair.jpg"
-            alt="Bridal hair styling"
+            src="/Abeille-43.jpg"
+            alt="Getting Started"
             class="hero-image"
-            fill
-            sizes="100vw"
         />
 
         <!-- dark overlay + centered content -->
         <div class="hero-overlay">
             <div class="hero-content">
-                <span class="hero-subtitle">— {{ siteConfig.siteName }}</span>
+<!--                <span class="hero-subtitle">— {{ siteConfig.siteName }}</span>-->
                 <h1 class="hero-title">Bridal Hair Styling Boutique</h1>
                 <NuxtLink to="/contact" class="hero-cta">Book Your Trial</NuxtLink>
             </div>
@@ -34,8 +32,14 @@ import { siteConfig } from '~/site.config'
 }
 
 .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
+    z-index: 0;
 }
 
 .hero-overlay {

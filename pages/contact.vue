@@ -2,11 +2,10 @@
     <!-- Hero -->
     <section class="contact-hero">
         <NuxtImg
-            src="/images/contact-hero.jpg"
+            src="/Abeille-90.jpg"
             alt="Salon interior"
             class="contact-hero__img"
-            fill
-            sizes="100vw"
+            width="400"
         />
         <div class="contact-hero__overlay">
             <h1 class="contact-hero__title">Let’s get started.</h1>
@@ -36,7 +35,7 @@
                 method="POST"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
-                class="contact-us__form"
+                class="contact-us__form bg-stone-rose rounded-xl shadow-lg p-8"
             >
                 <!-- required hidden inputs -->
                 <input type="hidden" name="form-name" value="contact" />
@@ -47,40 +46,70 @@
                     </label>
                 </p>
 
-                <div class="form-row">
-                    <label>
+                <div class="form-row gap-4">
+                    <label class="flex flex-col font-medium text-autumn-cedar">
                         First Name
-                        <input type="text" name="firstName" required />
+                        <input
+                            type="text"
+                            name="firstName"
+                            required
+                            class="mt-1 px-4 py-2 rounded-md border border-honey-lace bg-white text-autumn-cedar focus:border-fire-moss focus:outline-none transition-colors"
+                        />
                     </label>
-                    <label>
+                    <label class="flex flex-col font-medium text-autumn-cedar">
                         Last Name
-                        <input type="text" name="lastName" required />
+                        <input
+                            type="text"
+                            name="lastName"
+                            required
+                            class="mt-1 px-4 py-2 rounded-md border border-honey-lace bg-white text-autumn-cedar focus:border-fire-moss focus:outline-none transition-colors"
+                        />
                     </label>
                 </div>
 
-                <label>
+                <label class="flex flex-col font-medium text-autumn-cedar">
                     Email
-                    <input type="email" name="email" required />
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        class="mt-1 px-4 py-2 rounded-md border border-honey-lace bg-white text-autumn-cedar focus:border-fire-moss focus:outline-none transition-colors"
+                    />
                 </label>
 
-                <label>
+                <label class="flex flex-col font-medium text-autumn-cedar">
                     Subject
-                    <input type="text" name="subject" />
+                    <input
+                        type="text"
+                        name="subject"
+                        class="mt-1 px-4 py-2 rounded-md border border-honey-lace bg-white text-autumn-cedar focus:border-fire-moss focus:outline-none transition-colors"
+                    />
                 </label>
 
-                <label>
+                <label class="flex flex-col font-medium text-autumn-cedar">
                     Location
-                    <input type="text" name="location" />
+                    <input
+                        type="text"
+                        name="location"
+                        class="mt-1 px-4 py-2 rounded-md border border-honey-lace bg-white text-autumn-cedar focus:border-fire-moss focus:outline-none transition-colors"
+                    />
                 </label>
 
-                <label>
+                <label class="flex flex-col font-medium text-autumn-cedar">
                     Message
-                    <textarea name="message" rows="4"></textarea>
+                    <textarea
+                        name="message"
+                        rows="4"
+                        class="mt-1 px-4 py-2 rounded-md border border-honey-lace bg-white text-autumn-cedar focus:border-fire-moss focus:outline-none transition-colors resize-vertical"
+                    ></textarea>
                 </label>
 
-                <label>
+                <label class="flex flex-col font-medium text-autumn-cedar">
                     Event Type
-                    <select name="eventType">
+                    <select
+                        name="eventType"
+                        class="mt-1 px-4 py-2 rounded-md border border-honey-lace bg-white text-autumn-cedar focus:border-fire-moss focus:outline-none transition-colors"
+                    >
                         <option disabled selected>Select an option</option>
                         <option>Bridal Hair</option>
                         <option>Bridal Hair Trial</option>
@@ -89,12 +118,20 @@
                     </select>
                 </label>
 
-                <label>
+                <label class="flex flex-col font-medium text-autumn-cedar">
                     Event Date
-                    <input type="date" name="eventDate" required />
+                    <input
+                        type="date"
+                        name="eventDate"
+                        required
+                        class="mt-1 px-4 py-2 rounded-md border border-honey-lace bg-white text-autumn-cedar focus:border-fire-moss focus:outline-none transition-colors"
+                    />
                 </label>
 
-                <button type="submit" class="btn">Contact</button>
+                <button
+                    type="submit"
+                    class="btn w-full mt-2 py-3 text-lg font-semibold rounded-md bg-autumn-cedar text-white hover:bg-fire-moss transition-colors"
+                >Contact</button>
             </form>
         </div>
     </section>
@@ -103,7 +140,7 @@
     <section class="visit-us">
         <div class="visit-us__container">
             <NuxtImg
-                src="/images/salon-front.jpg"
+                src="/Abeille-01.jpg"
                 alt="Alyssa’s Chair exterior"
                 width="600"
                 class="visit-us__img"
@@ -151,6 +188,9 @@ import Footer from "~/components/Footer.vue";
 .contact-hero__img {
     object-fit: cover;
     object-position: center;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 .contact-hero__overlay {
     position: absolute;
@@ -187,7 +227,7 @@ import Footer from "~/components/Footer.vue";
     margin-bottom: 0.5rem;
 }
 .contact-us__email {
-    color: #224870;
+    color: var(--autumn-cedar);
     text-decoration: none;
 }
 .contact-us__text {
@@ -208,38 +248,6 @@ import Footer from "~/components/Footer.vue";
 }
 .form-row label {
     flex: 1;
-}
-label {
-    display: flex;
-    flex-direction: column;
-    font-weight: 500;
-    color: #333;
-}
-input, textarea, select {
-    margin-top: 0.25rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-textarea {
-    resize: vertical;
-}
-.btn {
-    align-self: flex-start;
-    padding: 0.75rem 1.5rem;
-    background: #224870;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: background 0.2s;
-}
-.btn:hover,
-.btn:focus {
-    background: #183356;
 }
 .hidden {
     display: none;

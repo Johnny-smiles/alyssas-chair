@@ -7,21 +7,21 @@
             <span :class="{ 'open': isOpen }"></span>
         </button>
 
-        <!-- left links -->
-        <div class="nav__links nav__links--left" :class="{ 'nav__links--open': isOpen }">
+        <div class="nav__links" :class="{ 'nav__links--open': isOpen }">
             <NuxtLink to="/services" class="nav__link" @click="isOpen = false">Services</NuxtLink>
             <NuxtLink to="/about"   class="nav__link" @click="isOpen = false">Meet Alyssa</NuxtLink>
+            <NuxtLink to="/contact" class="nav__link" @click="isOpen = false">Contact</NuxtLink>
         </div>
 
         <!-- centered logo -->
         <NuxtLink to="/" class="nav__logo">
-            {{ siteConfig.siteName }}
+            <NuxtImg
+                class="nav__logo-img"
+                src="/Logo_Abeille_Sedona_Hor.png"
+                alt="Alyssa Logo"
+                width="400"
+            />
         </NuxtLink>
-
-        <!-- right links -->
-        <div class="nav__links nav__links--right" :class="{ 'nav__links--open': isOpen }">
-            <NuxtLink to="/contact" class="nav__link" @click="isOpen = false">Contact</NuxtLink>
-        </div>
     </nav>
 </template>
 
@@ -37,7 +37,10 @@ const isOpen = ref(false)
     display: flex;
     align-items: center;
     padding: 1.5rem 2rem;
-    background-color: #fbfbfb;
+    background-color: var(--stone-rose, #f7e4df); /* fallback if custom property not set */
+    color: var(--autumn-cedar, #7c4a33);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    box-shadow: 0 2px 8px rgba(124, 74, 51, 0.06);
     position: relative;
 }
 
@@ -59,7 +62,7 @@ const isOpen = ref(false)
     display: block;
     height: 3px;
     width: 100%;
-    background: #000;
+    background: var(--autumn-cedar, #7c4a33);
     border-radius: 2px;
     transition: all 0.3s;
 }
@@ -86,23 +89,39 @@ const isOpen = ref(false)
 /* logo never grows/shrinks */
 .nav__logo {
     flex: 0;
-    font-size: 1.4rem;
+    font-size: 2rem;
+    font-family: var(--font-heading, 'Playfair Display', serif);
     font-weight: bold;
-    color: #000000;
+    color: var(--autumn-cedar, #7c4a33);
     text-decoration: none;
-    z-index: 1001;
+    z-index: 2000; /* Ensure highest z-index */
+    letter-spacing: 0.04em;
+    position: relative; /* Ensure stacking context */
+}
+
+.nav__logo-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 160px;
+    height: auto;
+    z-index: 2001;
+    position: relative;
+    pointer-events: auto;
 }
 
 /* link styling */
 .nav__link {
-    color: #000000;
+    color: var(--autumn-cedar, #7c4a33);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: color 0.2s;
 }
 
 .nav__link:hover {
+    color: var(--fire-moss, #b97a56);
     text-decoration: underline;
 }
 
@@ -118,6 +137,8 @@ const isOpen = ref(false)
     .nav__logo {
         margin: 0 auto;
         order: 1;
+        z-index: 2000; /* Increase z-index */
+        position: relative; /* Ensure stacking context */
     }
     .nav__links {
         position: absolute;
@@ -125,7 +146,7 @@ const isOpen = ref(false)
         left: 0;
         right: 0;
         flex-direction: column;
-        background: #fbfbfb;
+        background: var(--stone-rose, #f7e4df);
         gap: 1.5rem;
         padding: 1.5rem 2rem;
         z-index: 1000;

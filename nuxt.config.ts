@@ -53,14 +53,16 @@ export default defineNuxtConfig({
     }
   },
 
-  // Global CSS
-  css: ['@/assets/main.css'],
+  css: ['~/assets/main.css'],
 
-  // Only keep the image module
   modules: [
     '@nuxt/image',
     '@nuxtjs/sitemap',
+    '@nuxtjs/tailwindcss'
   ],
+  tailwindcss: {
+    cssPath: '~/assets/main.css'
+  },
 
   site: {
     url: 'https://alyssaschair.com',

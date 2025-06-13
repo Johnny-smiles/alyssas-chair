@@ -147,7 +147,7 @@
     content: "+";
     position: absolute;
     left: 0;
-    color: #224870;
+    color: var(--autumn-cedar);
     font-weight: bold;
 }
 .faq-item p {

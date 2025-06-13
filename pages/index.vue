@@ -1,9 +1,11 @@
 <template>
     <main class="home-main">
         <HeroSection />
-        <section class="home-section">
+        <br>
+        <section class="home-section home-section--boxed mt-12 mb-12">
             <HomepageServices />
         </section>
+        <br>
         <Footer
             name="Alyssa’s Chair"
             phone="612-555-1234"
@@ -67,6 +69,15 @@ useHead({
     max-width: 1200px;
     padding: 3rem 2rem;
     box-sizing: border-box;
+}
+
+/* Boxed style to match services-section */
+.home-section--boxed {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    background-color: #f3f4f6;
+
 }
 
 /* Responsive adjustments */
