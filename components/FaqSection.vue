@@ -22,69 +22,84 @@
 
         <!-- FAQ items -->
         <div class="faq-items">
-            <div class="faq-item">
-                <h3>What is your booking policy?</h3>
-                <p>
-                    To schedule any color or lightening service, we require a $75 deposit paid
-                    at the time of booking. We charge your card the full $75, and this amount
-                    comes off the total due on the day of your service. This fee will be forfeited
-                    if you cancel or reschedule your appointment without providing 48 business
-                    hours’ notice. If for any reason you cannot reach us by phone to cancel your
-                    appointment, please email us at info@alyssaschair.com.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What is included with my color service?</h3>
-                <p>
-                    Haircuts and blowdries are not included in base color and lightening services
-                    but can be added on if desired.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Is it all one set price?</h3>
-                <p>
-                    Individual client pricing may vary depending on hair thickness, length, total
-                    appointment time and/or product required.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How blonde can I be?</h3>
-                <p>
-                    It’s all relative! Coming in with hair inspo photos is a great idea, but keep
-                    in mind that photos work as our jumping-off point, and we have to take lots of
-                    factors into consideration — such as your hair history, your starting level,
-                    and more. Our stylists will consult you before any product ever comes near
-                    your head, to make sure that you understand what is possible in one session
-                    and over multiple sessions. The most important thing to us is maintaining the
-                    integrity of your hair while we attempt your goal. We’ll do our best to get
-                    you where you want to be and we’ll be real with you every step of the way!
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How much will it cost to lighten my hair?</h3>
-                <p>
-                    We never quote prices without seeing you and your goals in person, and getting
-                    a comprehensive hair history. Everyone’s needs to achieve their goals are
-                    different. You might need a root smudge, an extra bowl of product, a treatment,
-                    or something different in addition to the lightener. Until we meet you and
-                    know what you’re looking for, we can’t give you an exact price. Your stylist
-                    can give you a good idea before she begins your application how much your
-                    service will cost, and if you have a particular budget that you’d like to
-                    stick to then we can offer suggestions of what is possible within your price
-                    range. We are always here if you’d like to schedule a free consultation before
-                    you come in for your appointment!
-                </p>
+            <div
+                v-for="(faq, idx) in faqs"
+                :key="idx"
+                class="faq-item"
+            >
+                <h3
+                    :class="{ open: openIndex === idx }"
+                    @click="toggleFaq(idx)"
+                    tabindex="0"
+                    @keydown.enter="toggleFaq(idx)"
+                    style="cursor:pointer;"
+                >
+                    {{ faq.question }}
+                    <span class="faq-toggle-icon">
+                        {{ openIndex === idx ? '−' : '+' }}
+                    </span>
+                </h3>
+                <transition name="faq-fade">
+                    <p v-if="openIndex === idx">{{ faq.answer }}</p>
+                </transition>
             </div>
         </div>
     </section>
 </template>
 
 <script setup>
-// nothing to import—static content (just NuxtImg)
+import { ref } from 'vue'
+
+const faqs = [
+    {
+        question: "What is your booking policy?",
+        answer: `To schedule any color or lightening service, we require a $75 deposit paid
+at the time of booking. We charge your card the full $75, and this amount
+comes off the total due on the day of your service. This fee will be forfeited
+if you cancel or reschedule your appointment without providing 48 business
+hours’ notice. If for any reason you cannot reach us by phone to cancel your
+appointment, please email us at info@alyssaschair.com.`
+    },
+    {
+        question: "What is included with my color service?",
+        answer: `Haircuts and blowdries are not included in base color and lightening services
+but can be added on if desired.`
+    },
+    {
+        question: "Is it all one set price?",
+        answer: `Individual client pricing may vary depending on hair thickness, length, total
+appointment time and/or product required.`
+    },
+    {
+        question: "How blonde can I be?",
+        answer: `It’s all relative! Coming in with hair inspo photos is a great idea, but keep
+in mind that photos work as our jumping-off point, and we have to take lots of
+factors into consideration — such as your hair history, your starting level,
+and more. Our stylists will consult you before any product ever comes near
+your head, to make sure that you understand what is possible in one session
+and over multiple sessions. The most important thing to us is maintaining the
+integrity of your hair while we attempt your goal. We’ll do our best to get
+you where you want to be and we’ll be real with you every step of the way!`
+    },
+    {
+        question: "How much will it cost to lighten my hair?",
+        answer: `We never quote prices without seeing you and your goals in person, and getting
+a comprehensive hair history. Everyone’s needs to achieve their goals are
+different. You might need a root smudge, an extra bowl of product, a treatment,
+or something different in addition to the lightener. Until we meet you and
+know what you’re looking for, we can’t give you an exact price. Your stylist
+can give you a good idea before she begins your application how much your
+service will cost, and if you have a particular budget that you’d like to
+stick to then we can offer suggestions of what is possible within your price
+range. We are always here if you’d like to schedule a free consultation before
+you come in for your appointment!`
+    }
+]
+
+const openIndex = ref(null)
+const toggleFaq = idx => {
+    openIndex.value = openIndex.value === idx ? null : idx
+}
 </script>
 
 <style scoped>
@@ -137,24 +152,38 @@
 .faq-item h3 {
     position: relative;
     margin: 0 0 0.5rem;
-    padding-left: 1.5rem;
+    padding-left: 0;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.05em;
     font-size: 1.15rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    outline: none;
 }
-.faq-item h3::before {
-    content: "+";
-    position: absolute;
-    left: 0;
+.faq-item h3.open {
+    color: var(--autumn-cedar);
+}
+.faq-toggle-icon {
+    margin-left: 0.5em;
+    font-size: 1.3em;
     color: var(--autumn-cedar);
     font-weight: bold;
+    line-height: 1;
 }
 .faq-item p {
     margin: 0;
     color: #333;
     line-height: 1.6;
     font-size: 1rem;
+}
+.faq-fade-enter-active, .faq-fade-leave-active {
+    transition: opacity 0.25s;
+}
+.faq-fade-enter-from, .faq-fade-leave-to {
+    opacity: 0;
 }
 
 /* Tablet and below */

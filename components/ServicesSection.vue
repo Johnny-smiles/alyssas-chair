@@ -44,6 +44,7 @@
         <div class="services__grid">
             <!-- Bridal Hair -->
             <article
+                id="bridal-hair"
                 class="services__card"
                 itemscope
                 itemtype="https://schema.org/Service"
@@ -63,6 +64,7 @@
 
             <!-- Bridal Hair Trial -->
             <article
+                id="bridal-hair-trial"
                 class="services__card"
                 itemscope
                 itemtype="https://schema.org/Service"
@@ -84,6 +86,7 @@
 
             <!-- Bridesmaid Hair -->
             <article
+                id="bridesmaid-hair"
                 class="services__card"
                 itemscope
                 itemtype="https://schema.org/Service"
@@ -102,6 +105,7 @@
 
             <!-- Attendant Hair Trial -->
             <article
+                id="attendant-hair-trial"
                 class="services__card"
                 itemscope
                 itemtype="https://schema.org/Service"
@@ -129,6 +133,10 @@
 </script>
 
 <style scoped>
+html {
+  scroll-behavior: smooth;
+}
+
 .services {
     padding: 4rem 2rem;
     background-color: #f3f4f6;
