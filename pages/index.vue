@@ -17,7 +17,6 @@
 <script setup>
 import HeroSection from '~/components/HeroSection.vue'
 import HomepageServices from '~/components/HomepageServices.vue'
-import ContactForm from '~/components/ContactForm.vue'
 import FaqSection from '~/components/FaqSection.vue'
 import Footer from '~/components/Footer.vue'
 import { siteConfig } from '~/site.config'

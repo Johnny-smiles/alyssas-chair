@@ -175,6 +175,45 @@
 <script setup>
 import { NuxtImg } from '#components'
 import Footer from "~/components/Footer.vue";
+import { reactive, ref, nextTick } from 'vue'
+
+/* form state */
+const formState = reactive({ name: '', email: '', message: '' })
+const botField  = ref('')
+const showModal = ref(false)
+const sending   = ref(false)
+
+/* url-encode helper */
+const encode = (data) =>
+  Object.keys(data)
+    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
+    .join('&')
+
+/* new submit handler */
+async function onSubmit () {
+  if (botField.value) return            // honeypot
+  sending.value = true
+  try {
+    await fetch('/', {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body   : encode({ 'form-name': 'contact', ...formState })
+    })
+    sending.value = false
+    showModal.value = true
+    Object.assign(formState, { name: '', email: '', message: '' })
+    await nextTick()
+    document.querySelector('.modal')?.focus()
+  } catch (err) {
+    console.error(err)
+    sending.value = false
+    alert('Sorry—something went wrong. Please try again later.')
+  }
+}
+
+function closeModal () {
+  showModal.value = false
+}
 </script>
 
 <style scoped>
