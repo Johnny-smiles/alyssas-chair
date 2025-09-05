@@ -6,39 +6,47 @@ export default defineNuxtConfig({
     preset: 'static'
   },
 
-  // <head> config for BrightStart Pediatrics
+  // <head> config for “Your Electrician”
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: "Alyssa's Chair — Bridal Hair Salon in Minneapolis, MN",
+      title: 'Your Electrician — Residential & Commercial Electrical Services in Minneapolis–St Paul, MN',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
-          content: "Alyssa's Chair is a premier bridal hair salon in Minneapolis, MN, specializing in elegant bridal hairstyles for your special day."
+          content: 'Your Electrician provides licensed, bonded and insured electrical services for homes and businesses across the Minneapolis–St Paul metro area.'
         },
         { name: 'robots', content: 'index, follow' },
-        { property: 'og:title', content: "Alyssa's Chair — Bridal Hair Salon in Minneapolis, MN" },
-        { property: 'og:description', content: "Alyssa's Chair is a premier bridal hair salon in Minneapolis, MN, specializing in elegant bridal hairstyles for your special day." },
-        { property: 'og:image', content: 'https://alyssaschair.com/social-preview.png' },
-        { property: 'og:url', content: 'https://alyssaschair.com' },
-        { property: 'og:type', content: 'website' },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: "Alyssa's Chair — Bridal Hair Salon in Minneapolis, MN" },
-        { name: 'twitter:description', content: "Alyssa's Chair is a premier bridal hair salon in Minneapolis, MN, specializing in elegant bridal hairstyles for your special day." },
-        { name: 'twitter:image', content: 'https://alyssaschair.com/social-preview.png' }
+
+        /* Open Graph */
+        { property: 'og:title',       content: 'Your Electrician — Residential & Commercial Electrical Services in Minneapolis–St Paul, MN' },
+        { property: 'og:description', content: 'Your Electrician provides licensed, bonded and insured electrical services for homes and businesses across the Minneapolis–St Paul metro area.' },
+        { property: 'og:image',       content: 'https://yourelectrician.co/social-preview.png' },
+        { property: 'og:url',         content: 'https://yourelectrician.co' },
+        { property: 'og:type',        content: 'website' },
+
+        /* Twitter */
+        { name: 'twitter:card',        content: 'summary_large_image' },
+        { name: 'twitter:title',       content: 'Your Electrician — Residential & Commercial Electrical Services in Minneapolis–St Paul, MN' },
+        { name: 'twitter:description', content: 'Your Electrician provides licensed, bonded and insured electrical services for homes and businesses across the Minneapolis–St Paul metro area.' },
+        { name: 'twitter:image',       content: 'https://yourelectrician.co/social-preview.png' }
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-        { rel: 'canonical', href: 'https://alyssaschair.com' }
+        { rel: 'icon',                 type: 'image/png', href: '/favicon.png' },
+        { rel: 'apple-touch-icon',                              href: '/apple-touch-icon.png' },
+        { rel: 'apple-touch-icon-precomposed',                  href: '/apple-touch-icon-precomposed.png' },
+        { rel: 'canonical',                                     href: 'https://yourelectrician.co' }
       ],
       script: [
+        /* Plausible Analytics */
         {
           src: 'https://plausible.io/js/script.js',
           defer: true,
-          'data-domain': 'alyssaschairr.netlify.app'
+          'data-domain': 'yourelectrician.co'
         },
+        /* Google Analytics (v4) */
         { src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX', async: true },
         {
           type: 'text/javascript',
@@ -65,8 +73,8 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: 'https://alyssaschair.com',
-    name: 'alyssas-chair'
+    url:  'https://yourelectrician.co',
+    name: 'your-electrician'
     // Add more options here as needed (e.g., exclude, routes, etc.)
   },
 

@@ -21,29 +21,29 @@
                     From romantic updos to soft waves, we craft styles that reflect your vision and personality.
                     Our stylists have years of experience ensuring every detail is flawless.
                 </p>
-                <NuxtLink to="/services" class="intro-link">
-                    View Our Bridal Hair Services
-                </NuxtLink>
+<!--                <NuxtLink to="/services" class="intro-link">-->
+<!--                    View Our Bridal Hair Services-->
+<!--                </NuxtLink>-->
             </div>
         </div>
 
-        <div class="services-preview">
-            <div class="services-preview__gallery">
-                <NuxtImg src="/images/hair1.jpg" alt="Example hairstyle #1" />
-                <NuxtImg src="/images/hair2.jpg" alt="Example hairstyle #2" />
-                <NuxtImg src="/images/hair3.jpg" alt="Example hairstyle #3" />
-            </div>
-            <div class="services-preview__label">Hair</div>
-        </div>
+<!--        <div class="services-preview">-->
+<!--            <div class="services-preview__gallery">-->
+<!--                <NuxtImg src="/images/hair1.jpg" alt="Example hairstyle #1" />-->
+<!--                <NuxtImg src="/images/hair2.jpg" alt="Example hairstyle #2" />-->
+<!--                <NuxtImg src="/images/hair3.jpg" alt="Example hairstyle #3" />-->
+<!--            </div>-->
+<!--            <div class="services-preview__label">Hair</div>-->
+<!--        </div>-->
 
-        <div class="services-preview">
-            <div class="services-preview__label">Bridal</div>
-            <div class="services-preview__gallery">
-                <NuxtImg src="/images/bridal1.jpg" alt="Example bridal #1" />
-                <NuxtImg src="/images/bridal2.jpg" alt="Example bridal #2" />
-                <NuxtImg src="/images/bridal3.jpg" alt="Example bridal #3" />
-            </div>
-        </div>
+<!--        <div class="services-preview">-->
+<!--            <div class="services-preview__label">Bridal</div>-->
+<!--            <div class="services-preview__gallery">-->
+<!--                <NuxtImg src="/images/bridal1.jpg" alt="Example bridal #1" />-->
+<!--                <NuxtImg src="/images/bridal2.jpg" alt="Example bridal #2" />-->
+<!--                <NuxtImg src="/images/bridal3.jpg" alt="Example bridal #3" />-->
+<!--            </div>-->
+<!--        </div>-->
 
         <!-- 3) Bottom CTA -->
         <div class="services-cta">

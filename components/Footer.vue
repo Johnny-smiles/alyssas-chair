@@ -5,7 +5,7 @@
         <nav class="site-footer__nav">
             <ul class="site-footer__links site-footer__links--left">
                 <li><NuxtLink to="/services">Services</NuxtLink></li>
-                <li><NuxtLink to="/about">Meet Alyssa</NuxtLink></li>
+                <li><NuxtLink to="/about">The Collective</NuxtLink></li>
             </ul>
 
             <NuxtLink to="/" class="nav__logo">

@@ -24,7 +24,8 @@ const config: Config = {
                     'breeze':       '#81732E',
                     'lilac':        '#ADC2D8',
                     'sky':          '#E0D9EC',
-                },            },
+                },
+            },
             fontFamily: {
                 heading: ['Gotham Pro', 'Montserrat', 'sans-serif'],
                 body:    ['Baskerville', 'serif'],

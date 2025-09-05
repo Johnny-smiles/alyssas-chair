@@ -34,3 +34,21 @@
 .hero-title {
     color: var(--stone-rose);
 }
+.btn-outlined {
+    display: inline-block;
+    border: 2px solid var(--autumn-cedar, #7c4a33);
+    border-radius: 999px;
+    padding: 0.35em 1.2em;
+    font-weight: 600;
+    background: transparent;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    color: var(--autumn-cedar, #7c4a33);
+    text-decoration: none;
+}
+.btn-outlined:hover,
+.btn-outlined:focus {
+    background: var(--autumn-cedar, #7c4a33);
+    color: #fff;
+    border-color: var(--autumn-cedar, #7c4a33);
+    text-decoration: none !important;
+}

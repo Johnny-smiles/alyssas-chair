@@ -1,118 +1,203 @@
 <template>
-    <main class="page-about">
-        <br>
-        <section class="about mt-12">
-            <h1>About Alyssa’s Chair</h1>
-            <p>
-                Alyssa’s Chair is a boutique bridal hair studio located in the heart of Minneapolis.
-                Founded by Alyssa, a seasoned stylist with over a decade of experience in wedding-day updos
-                and elegant bridal looks, we specialize in crafting timeless styles that reflect each bride’s
-                unique personality.
-            </p>
-            <p>
-                At Alyssa’s Chair, we believe that beautiful hair begins with a personal connection.
-                From your initial consultation to the final veil placement, Alyssa and her team are committed
-                to warm hospitality, meticulous attention to detail, and work done right.
-                Let us help you look—and feel—like the best version of yourself on your special day.
-            </p>
+    <main class="about-page">
+        <!-- Hero -->
+        <section class="about-hero">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold hero-title mb-3" style="color: var(--stone-rose)">
+                    Abeille Collective
+                </h1>
+                <p class="text-lg opacity-90 max-w-2xl mx-auto" style="color: var(--stone-rose)">
+                    A collective studio offering hair and beauty services under one roof—book with the stylist that fits your vibe.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4 justify-center">
+                    <a
+                        class="btn-primary"
+                        href="https://www.vagaro.com/abeille"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Book on Vagaro
+                    </a>
+                    <NuxtLink class="btn-secondary" to="/stylists">
+                        Meet Our Stylists
+                    </NuxtLink>
+                </div>
+            </div>
+        </section>
+
+        <!-- About body -->
+        <section class="container mx-auto px-6 py-12 max-w-4xl">
+            <div class="about-card">
+                <p>
+                    Abeille Collective is a shared studio space built for independent artists and their guests.
+                    Our team brings a range of specialties—bridal styling, lived-in color, precision cuts,
+                    facials, brows, waxing, and more—so you can book the right pro for your needs.
+                </p>
+                <p>
+                    We believe in warm hospitality, honest consultations, and results that fit your lifestyle.
+                    Explore our stylists, browse services, and schedule online in minutes.
+                </p>
+
+                <div class="about-quick mt-8">
+                    <div class="quick-item">
+                        <h3>Booking</h3>
+                        <p>
+                            Schedule directly with each stylist via Vagaro.
+                            <br />
+                            <a class="underline" href="https://www.vagaro.com/abeille" target="_blank" rel="noopener">Open booking →</a>
+                        </p>
+                    </div>
+                    <div class="quick-item">
+                        <h3>Team</h3>
+                        <p>
+                            Hair & beauty pros with diverse specialties.
+                            <br />
+                            <NuxtLink class="underline" to="/stylists">See all stylists →</NuxtLink>
+                        </p>
+                    </div>
+                    <div class="quick-item">
+                        <h3>Contact</h3>
+                        <p>
+                            <span v-if="site?.phone"><a class="underline" :href="`tel:${site.phone}`">{{ site.phone }}</a></span>
+                            <br />
+                            <span v-if="site?.email"><a class="underline" :href="`mailto:${site.email}`">{{ site.email }}</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optional studio photo -->
+        <section class="container mx-auto px-6 pb-16 max-w-5xl">
             <NuxtImg
-                class="about-img"
-                src="/alyssa.jpg"
-                alt="Alyssa Profile"
-                width="400"
+                v-if="studioImg"
+                :src="studioImg"
+                alt="Abeille Collective Studio"
+                class="studio-img"
             />
         </section>
 
         <Footer
-            name="Alyssa’s Chair"
-            phone="612-555-1234"
-            email="hello@alyssaschair.com"
+            :name="site?.siteName || 'Abeille Collective'"
+            :phone="site?.phone || ''"
+            :email="site?.email || ''"
         />
     </main>
 </template>
 
 <script setup lang="ts">
 import Footer from '~/components/Footer.vue'
+import { useHead } from '#imports'
+import { siteConfig as site } from '~/site.config' // if you keep global site details here
+
+// optional — replace with your own image or remove the section above
+const studioImg = '/img/studio/abeille-hero.jpg'
+
+// Structured data
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": site?.siteName || "Abeille Collective",
+    "url": site?.siteUrl || "",
+    "telephone": site?.phone || "",
+    "image": site?.logo || studioImg || "",
+    "address": site?.location ? {
+        "@type": "PostalAddress",
+        "addressLocality": site.location.city,
+        "addressRegion": site.location.state,
+        "postalCode": site.location.zip,
+        "addressCountry": site.location.country
+    } : undefined,
+    "description": site?.description || "A collective studio offering hair and beauty services.",
+    "openingHours": site?.hours || "",
+    "sameAs": [
+        // add socials if you like
+    ],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+            { "@type": "OfferCatalog", "name": "Hair" },
+            { "@type": "OfferCatalog", "name": "Beauty" }
+        ]
+    }
+}
+
+useHead({
+    script: [
+        { type: 'application/ld+json', children: JSON.stringify(structuredData) }
+    ],
+    title: `About • ${site?.siteName || 'Abeille Collective'}`
+})
 </script>
 
 <style scoped>
-.page-about {
-    margin: 0 auto;
+.about-page {
+    background: #f8fafc;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    height: auto;
-    overflow: hidden;
-    background: #f8fafc;
-
 }
 
-.about {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    padding: 4rem 2rem;
-    box-sizing: border-box;
-    max-width: 700px;
-    margin: 0 auto 3rem auto;
-    text-align: center;
-    background: #f3f4f6;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+/* Hero */
+.about-hero {
+    background-color: var(--autumn-cedar); /* brand/nav color */
 }
 
-.about h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+    background: var(--stone-rose);
     color: var(--autumn-cedar);
-    letter-spacing: 0.01em;
+}
+.btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+    border: 1px solid var(--stone-rose);
+    color: var(--stone-rose);
 }
 
-.about p {
-    font-size: 1.08rem;
+/* Card */
+.about-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    padding: 2rem;
+}
+.about-card p {
+    font-size: 1.06rem;
     line-height: 1.7;
-    color: #555;
-    margin-bottom: 1.25rem;
+    color: #444;
+    margin-bottom: 1rem;
 }
 
-.about-img {
-    display: block;
-    margin: 2rem auto 0 auto;
-    max-width: 100%;
+/* Quick grid */
+.about-quick {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 1rem;
+}
+.quick-item h3 {
+    font-weight: 700;
+    color: var(--autumn-cedar);
+    margin-bottom: .25rem;
+}
+
+/* Studio image */
+.studio-img {
+    width: 100%;
     height: auto;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
 }
 
-/* Tablet breakpoint */
+/* Responsive */
 @media (max-width: 900px) {
-    .about {
-        padding: 2.5rem 1rem;
-        max-width: 95vw;
-    }
-    .about h1 {
-        font-size: 2rem;
-    }
-}
-
-/* Mobile breakpoint */
-@media (max-width: 600px) {
-    .page-about {
-        min-height: 100vh;
-        height: auto;
-    }
-    .about {
-        padding: 1.2rem 0.5rem;
-        max-width: 99vw;
-        border-radius: 0;
-        box-shadow: none;
-    }
-    .about h1 {
-        font-size: 1.25rem;
-        margin-bottom: 0.8rem;
-    }
-    .about p {
-        font-size: 0.97rem;
-        margin-bottom: 0.9rem;
-    }
+    .about-quick { grid-template-columns: 1fr; }
 }
 </style>

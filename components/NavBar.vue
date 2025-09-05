@@ -14,7 +14,7 @@
                 class="nav__link nav__link--outlined"
                 @click="isOpen = false"
             >
-                Meet Alyssa
+                The Collective
             </NuxtLink>
         </div>
 
@@ -39,7 +39,7 @@
                     <NuxtLink to="/services#attendant-hair-trial" class="nav__sublink" @click="isOpen = false">Attendant Hair Trial</NuxtLink>
                 </div>
             </div>
-            <NuxtLink to="/about" class="nav__link nav__link--mobile" @click="isOpen = false">Meet Alyssa</NuxtLink>
+            <NuxtLink to="/about" class="nav__link nav__link--mobile" @click="isOpen = false">The Collective</NuxtLink>
             <NuxtLink to="/contact" class="nav__link" @click="isOpen = false">Contact</NuxtLink>
         </div>
     </nav>
