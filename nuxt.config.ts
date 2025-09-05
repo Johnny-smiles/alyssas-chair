@@ -6,51 +6,52 @@ export default defineNuxtConfig({
     preset: 'static'
   },
 
-  // <head> config for “Your Electrician”
+  // <head> config for “Abeille Collective”
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'Your Electrician — Residential & Commercial Electrical Services in Minneapolis–St Paul, MN',
+      title: 'Abeille Collective — Hair & Beauty in Minneapolis–St Paul, MN',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
-          content: 'Your Electrician provides licensed, bonded and insured electrical services for homes and businesses across the Minneapolis–St Paul metro area.'
+          content: 'Abeille Collective is a studio of independent artists offering hair and beauty services—bridal styling, lived-in color, precision cuts, facials, brows, and more—in Minneapolis–St Paul, MN.'
         },
         { name: 'robots', content: 'index, follow' },
 
         /* Open Graph */
-        { property: 'og:title',       content: 'Your Electrician — Residential & Commercial Electrical Services in Minneapolis–St Paul, MN' },
-        { property: 'og:description', content: 'Your Electrician provides licensed, bonded and insured electrical services for homes and businesses across the Minneapolis–St Paul metro area.' },
-        { property: 'og:image',       content: 'https://yourelectrician.co/social-preview.png' },
-        { property: 'og:url',         content: 'https://yourelectrician.co' },
+        { property: 'og:title',       content: 'Abeille Collective — Hair & Beauty in Minneapolis–St Paul, MN' },
+        { property: 'og:description', content: 'Book with the stylist that fits your vibe. Hair & beauty services under one roof at Abeille Collective.' },
+        { property: 'og:image',       content: 'https://abeillecollective.com/social-preview.png' },
+        { property: 'og:url',         content: 'https://abeillecollective.com' },
         { property: 'og:type',        content: 'website' },
 
         /* Twitter */
         { name: 'twitter:card',        content: 'summary_large_image' },
-        { name: 'twitter:title',       content: 'Your Electrician — Residential & Commercial Electrical Services in Minneapolis–St Paul, MN' },
-        { name: 'twitter:description', content: 'Your Electrician provides licensed, bonded and insured electrical services for homes and businesses across the Minneapolis–St Paul metro area.' },
-        { name: 'twitter:image',       content: 'https://yourelectrician.co/social-preview.png' }
+        { name: 'twitter:title',       content: 'Abeille Collective — Hair & Beauty in Minneapolis–St Paul, MN' },
+        { name: 'twitter:description', content: 'Independent artists for hair, makeup, facials, brows, and more. Book online at Abeille Collective.' },
+        { name: 'twitter:image',       content: 'https://abeillecollective.com/social-preview.png' }
       ],
       link: [
         { rel: 'icon',                 type: 'image/png', href: '/favicon.png' },
         { rel: 'apple-touch-icon',                              href: '/apple-touch-icon.png' },
         { rel: 'apple-touch-icon-precomposed',                  href: '/apple-touch-icon-precomposed.png' },
-        { rel: 'canonical',                                     href: 'https://yourelectrician.co' }
+        { rel: 'canonical',                                     href: 'https://abeillecollective.com' }
       ],
       script: [
         /* Plausible Analytics */
         {
           src: 'https://plausible.io/js/script.js',
           defer: true,
-          'data-domain': 'yourelectrician.co'
+          'data-domain': 'abeillecollective.com'
         },
         /* Google Analytics (v4) */
         { src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX', async: true },
         {
           type: 'text/javascript',
-          innerHTML: `
+          // You can also move GA to runtimeConfig.public.gaId if you prefer env-driven
+          children: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -73,8 +74,8 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url:  'https://yourelectrician.co',
-    name: 'your-electrician'
+    url:  'https://abeillecollective.com',
+    name: 'abeille-collective'
     // Add more options here as needed (e.g., exclude, routes, etc.)
   },
 
